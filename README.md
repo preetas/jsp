@@ -1,6 +1,9 @@
 # Instructions
 
-Tricks to use to deploy a Spring Boot WAR project containing by example a JSP page
+In order to use a Spring Boot project which is packaged as a WAR and which contains by example JSP pages, JSP Standard Tag Library (JSTL), ... some modifications are 
+required to build/deploy correctly the project as a container on Openshift or Kubernetes platform.
+
+The modifications described hereafter assume that you use the `Fabric8 Maven Plugin` like also the `Spring Boot Maven Plugin`
 
 - Enable the repackaging of the WAR to include the Spring Boot classes used to launch the application and to update 
   the MANIFEST.mf file definition with the following properties :
