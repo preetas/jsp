@@ -4,7 +4,7 @@ spec:
       containers:
       - env:
         - name: JAVA_APP_JAR
-          value: ${project.artifactId}-${project.versionId}.war
+          value: ${project.artifactId}-${project.version}.war
       resources:
         limits:
           memory: 250Mi
