@@ -1,7 +1,14 @@
 # Instructions
 
-## Create BuildConfig
+## Deploy project
+```bash
+mvn clean fabric8:deploy -Popenshift 
+```
 
+## Manual
+
+- Create BuildConfig
+```
 oc login ....
 oc new-project demo-jsp
 oc new-build --binary=true \
@@ -9,12 +16,12 @@ oc new-build --binary=true \
    --strategy source \
    --name spring-boot-jsp-war-s2i \
    -e ARTIFACT_COPY_ARGS=*.war
+```   
    
 ## Build project
-
-mvn clean package fabric8:resource fabric8:build -Popenshift 
-mvn fabric8:deploy -Popenshift 
-/* oc start-build --from-file=target/mvc-jsp-0.0.1-SNAPSHOT.war spring-boot-jsp-war-s2i */ 
+```
+oc start-build --from-file=target/mvc-jsp-0.0.1-SNAPSHOT.war spring-boot-jsp-war-s2i 
+```
 
 
    
