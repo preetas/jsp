@@ -4,7 +4,7 @@ spec:
       containers:
       - env:
         - name: JAVA_APP_JAR
-          value: 'mvc-jsp-0.0.1-SNAPSHOT.war'
+          value: ${project.artifactId}-${project.versionId}.war
       resources:
         limits:
           memory: 250Mi
