@@ -1,0 +1,10 @@
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: JAVA_APP_JAR
+          value: 'mvc-jsp-0.0.1-SNAPSHOT.war'
+      resources:
+        limits:
+          memory: 250Mi
