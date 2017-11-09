@@ -5,7 +5,9 @@ Tricks to use to deploy a Spring Boot WAR project containing by example a JSP pa
 - Enable the repackaging of the WAR to include the Spring Boot classes used to launch the application and to update 
   the MANIFEST.mf file definition with the following properties :
   - `Main-Class: org.springframework.boot.loader.WarLauncher`
-  - `Spring-Boot-Classes, Spring-Boot-Lib, Spring-Boot-Version` parameters.
+  - `Spring-Boot-Classes: WEB-INF/classes/`
+  - `Spring-Boot-Lib: WEB-INF/lib/`
+  - `Spring-Boot-Version: 1.5.8.RELEASE`
   
   Set this option using the goal repackage of the Spring Boot maven plugin. See - `<execution><execution><goals><goal>repackage</goal>` within the pom.xml file
 - Add an env var `<ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>` to specify to copy the war during the creation of the Docker image when 
