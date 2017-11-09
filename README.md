@@ -2,8 +2,11 @@
 
 Tricks to use to deploy a Spring Boot WAR project containing by example a JSP page
 
-- Enable the repackaging of the WAR to include a MANIFEST.mf file which defines the main class to be used to bootstrap the application `Main-Class: org.springframework.boot.loader.WarLauncher`
-  like the `Spring-Boot-Classes, Spring-Boot-Lib, Spring-Boot-Version` parameters.
+- Enable the repackaging of the WAR to include the Spring Boot classes used to launch the application and to update 
+  the MANIFEST.mf file definition with the following properties :
+  - `Main-Class: org.springframework.boot.loader.WarLauncher`
+  - `Spring-Boot-Classes, Spring-Boot-Lib, Spring-Boot-Version` parameters.
+  
   Set this option using the goal repackage of the Spring Boot maven plugin. See - `<execution><execution><goals><goal>repackage</goal>` within the pom.xml file
 - Add an env var `<ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>` to specify to copy the war during the creation of the Docker image when 
   S2I build process is running. Such a configuration should be defined within the Fabric8 Maven Configuration part - see `<configuration>`
