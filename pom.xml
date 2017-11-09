@@ -29,6 +29,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- Hot reload -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -92,7 +99,7 @@
                                     <name>${project.artifactId}:%t</name>
                                     <alias>spring-boot-mvc-jsp</alias>
                                     <build>
-                                        <from>fabric8/s2i-java:2.0</from>
+                                        <from>redhat-openjdk-18/openjdk18-openshift</from>
                                         <assembly>
                                             <basedir>/deployments</basedir>
                                             <descriptorRef>artifact</descriptorRef>
