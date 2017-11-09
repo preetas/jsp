@@ -1,6 +1,6 @@
 # Instructions
 
-Tricks to be able to deploy a Spring Boot WAR project containing by example a JSP page
+Tricks to use to deploy a Spring Boot WAR project containing by example a JSP page
 
 - Add first an env var `<ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>` to specify to copy a war during the creation of the Docker image when 
   S2I build process is running. Such a configuration should be defined within the Fabric8 Maven Configuration part - see `<configuration>`
