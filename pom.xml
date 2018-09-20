@@ -114,7 +114,6 @@
                                         <env>
                                             <ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>
                                             <JAVA_APP_DIR>/deployments</JAVA_APP_DIR>
-                                            <JAVA_APP_JAR>${project.artifactId}-${project.version}.war</JAVA_APP_JAR>
                                         </env>
                                         <ports>
                                             <port>8080</port>
