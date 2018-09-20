@@ -21,8 +21,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <spring-boot.bom.version>1.5.8.Final</spring-boot.bom.version>
-        <maven.spring-boot.plugin.version>1.5.8.RELEASE</maven.spring-boot.plugin.version>
+        <spring-boot.bom.version>1.5.15.Final</spring-boot.bom.version>
+        <maven.spring-boot.plugin.version>1.5.15.RELEASE</maven.spring-boot.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -42,18 +42,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <!-- Hot reload -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-        <!-- Provided -->
+
+        <!-- Provided & test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -107,11 +101,12 @@
                         </executions>
                         <configuration>
                             <images>
+                                <!-- Override the Dockerfile created with the following values -->
                                 <image>
                                     <name>${project.artifactId}:%t</name>
                                     <alias>spring-boot-mvc-jsp</alias>
                                     <build>
-                                        <from>redhat-openjdk-18/openjdk18-openshift</from>
+                                        <from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift</from>
                                         <assembly>
                                             <basedir>/deployments</basedir>
                                             <descriptorRef>artifact</descriptorRef>
@@ -119,6 +114,7 @@
                                         <env>
                                             <ARTIFACT_COPY_ARGS>*.war</ARTIFACT_COPY_ARGS>
                                             <JAVA_APP_DIR>/deployments</JAVA_APP_DIR>
+                                            <JAVA_APP_JAR>${project.artifactId}-${project.version}.war</JAVA_APP_JAR>
                                         </env>
                                         <ports>
                                             <port>8080</port>
