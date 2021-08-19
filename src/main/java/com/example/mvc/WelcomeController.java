@@ -30,7 +30,7 @@ public class WelcomeController {
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
 
-	@RequestMapping("/welcome")
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
 		//model.put("time", new Date());
 		//model.put("message", this.message);
