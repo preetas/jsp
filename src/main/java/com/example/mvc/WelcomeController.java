@@ -31,9 +31,9 @@ public class WelcomeController {
 	private String message = "Hello World";
 
 	@RequestMapping("/welcome")
-	public String welcome(Map<String, Object> model) {
-		model.put("time", new Date());
-		model.put("message", this.message);
+	public String welcome() {
+		//model.put("time", new Date());
+		//model.put("message", this.message);
 		return "welcome";
 	}
 
