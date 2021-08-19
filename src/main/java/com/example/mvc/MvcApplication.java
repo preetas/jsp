@@ -6,6 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
+@ComponentScan(basePackages= {"com.example.mvc"})
 public class MvcApplication extends SpringBootServletInitializer {
 
 	@Override
