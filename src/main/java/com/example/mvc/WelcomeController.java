@@ -36,7 +36,7 @@ public class WelcomeController {
 	public String welcome(Map<String, Object> model) {
 		model.put("time", new Date());
 		model.put("message", this.message);
-		return "welcome.jsp";
+		return "welcome";
 	}
 
 	@RequestMapping("/foo")
