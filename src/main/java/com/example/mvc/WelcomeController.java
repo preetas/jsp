@@ -29,13 +29,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@ResponseBody
 public class WelcomeController {
 
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+        @ResponseBody
 	public String welcome(Map<String, Object> model) {
 		model.put("time", new Date());
 		model.put("message", this.message);
